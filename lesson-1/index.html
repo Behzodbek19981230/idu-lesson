@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Font -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+   <!-- Icons -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+   <title>Cards</title>
+
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+      }
+
+      body {
+         background: #ffffff;
+         font-family: 'Inter', sans-serif;
+         color: #111827;
+         padding: 20px;
+      }
+
+      .container {
+         max-width: 980px;
+         margin: 0 auto;
+      }
+
+      .row {
+         display: flex;
+         gap: 32px;
+         flex-wrap: wrap;
+         justify-content: center;
+      }
+
+      .row+.row {
+         margin-top: 32px;
+      }
+
+      .card {
+         background: #fff;
+         border: 1px solid #eceef2;
+         border-radius: 14px;
+         box-shadow: 0 4px 14px rgba(17, 24, 39, 0.06);
+         overflow: hidden;
+      }
+
+      .btn {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 10px;
+         width: 100%;
+         padding: 12px;
+         border: none;
+         border-radius: 6px;
+         color: #fff;
+         font-family: inherit;
+         font-size: 15px;
+         font-weight: 500;
+         cursor: pointer;
+         transition: opacity 0.2s;
+      }
+
+      .btn:hover {
+         opacity: 0.9;
+      }
+
+      /* ===== Profile card ===== */
+      .profile {
+         width: 290px;
+         text-align: center;
+      }
+
+      .profile-cover {
+         height: 95px;
+         background: #eef0fe;
+      }
+
+      .profile-avatar {
+         width: 110px;
+         height: 110px;
+         margin: -75px auto 0;
+         border-radius: 50%;
+         border: 3px solid #fff;
+         background: #eef0fe;
+         overflow: hidden;
+         position: relative;
+      }
+
+      .profile-avatar img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
+      .profile-body {
+         padding: 12px 20px 20px;
+      }
+
+      .profile-name {
+         font-size: 21px;
+         font-weight: 600;
+         margin-bottom: 6px;
+      }
+
+      .profile-role {
+         font-size: 15px;
+         color: #4b5563;
+         margin-bottom: 14px;
+      }
+
+      .profile-desc {
+         font-size: 13.5px;
+         color: #4b5563;
+         line-height: 1.5;
+         padding-bottom: 14px;
+         border-bottom: 1px solid #e5e7eb;
+      }
+
+      .profile-stats {
+         display: flex;
+         justify-content: space-around;
+         margin: 14px 0 22px;
+      }
+
+      .profile-stats b {
+         display: block;
+         font-size: 17px;
+         font-weight: 600;
+         color: #5b50d6;
+         margin-bottom: 4px;
+      }
+
+      .profile-stats span {
+         font-size: 13px;
+         color: #4b5563;
+      }
+
+      .btn-purple {
+         background: #6763e6;
+      }
+
+      /* ===== Product card ===== */
+      .product {
+         width: 292px;
+         padding: 16px;
+      }
+
+      .product-image {
+         position: relative;
+         height: 175px;
+         border-radius: 8px;
+         overflow: hidden;
+         background: #e9eaec;
+      }
+
+      .product-image img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
+      .badge-sale {
+         position: absolute;
+         top: 13px;
+         right: 12px;
+         background: #e5484d;
+         color: #fff;
+         font-size: 13px;
+         font-weight: 500;
+         padding: 4px 7px;
+         border-radius: 6px;
+      }
+
+      .product-title {
+         font-size: 19px;
+         font-weight: 600;
+         margin: 20px 0 10px;
+      }
+
+      .product-desc {
+         font-size: 14px;
+         color: #4b5563;
+         line-height: 1.5;
+         max-width: 190px;
+      }
+
+      .product-price {
+         display: flex;
+         align-items: baseline;
+         gap: 14px;
+         margin: 16px 0 18px;
+      }
+
+      .product-price b {
+         font-size: 23px;
+         font-weight: 600;
+         color: #e0364a;
+      }
+
+      .product-price s {
+         font-size: 14px;
+         color: #6b7280;
+      }
+
+      .btn-green {
+         background: #1f9d55;
+      }
+
+      /* ===== Course card ===== */
+      .course {
+         width: 310px;
+         padding: 14px;
+      }
+
+      .course-image {
+         height: 190px;
+         border-radius: 8px;
+         background: #e3eefd;
+         overflow: hidden;
+      }
+
+      .course-image img {
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+
+      .course-body {
+         padding: 16px 4px 4px;
+      }
+
+      .course-tag {
+         display: inline-block;
+         background: #e3eefd;
+         color: #2563eb;
+         font-size: 13px;
+         padding: 5px 8px;
+         border-radius: 5px;
+      }
+
+      .course-title {
+         font-size: 21px;
+         font-weight: 600;
+         margin: 10px 0 12px;
+      }
+
+      .course-desc {
+         font-size: 14px;
+         color: #4b5563;
+         line-height: 1.55;
+      }
+
+      .course-footer {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-top: 32px;
+      }
+
+      .course-time {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         font-size: 14.5px;
+         color: #4b5563;
+      }
+
+      .course-link {
+         display: flex;
+         align-items: center;
+         gap: 8px;
+         color: #2563eb;
+         font-size: 16px;
+         font-weight: 500;
+         text-decoration: none;
+      }
+
+      /* ===== Stats card ===== */
+      .stats {
+         width: 415px;
+         padding: 24px;
+         display: flex;
+         gap: 36px;
+         position: relative;
+      }
+
+      .icon-box {
+         flex-shrink: 0;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         border-radius: 12px;
+      }
+
+      .stats-icon {
+         width: 115px;
+         height: 122px;
+         background: #e9f6ef;
+         color: #1f9d55;
+         font-size: 52px;
+      }
+
+      .stats-title {
+         font-size: 15.5px;
+         font-weight: 600;
+         margin-top: 8px;
+      }
+
+      .stats-number {
+         font-size: 34px;
+         font-weight: 700;
+         color: #1f9d55;
+         margin: 10px 0 14px;
+      }
+
+      .stats-text {
+         font-size: 13.5px;
+         color: #4b5563;
+         line-height: 1.7;
+      }
+
+      .stats-text .up {
+         color: #1f9d55;
+      }
+
+      .stats-text .up i {
+         font-size: 12px;
+      }
+
+      .stats-chart {
+         position: absolute;
+         right: 24px;
+         bottom: 26px;
+         width: 42px;
+         height: 42px;
+         border-radius: 8px;
+         background: #e9f6ef;
+         color: #1f9d55;
+         font-size: 20px;
+      }
+
+      /* ===== Notification card ===== */
+      .notify {
+         width: 405px;
+         padding: 30px 24px;
+         display: flex;
+         gap: 22px;
+      }
+
+      .notify-icon {
+         width: 102px;
+         height: 102px;
+         background: #fef3cd;
+         margin-top: 2px;
+         color: #fbbf24;
+         font-size: 48px;
+      }
+
+      .notify-title {
+         font-size: 17px;
+         font-weight: 600;
+         margin-top: 6px;
+      }
+
+      .notify-text {
+         font-size: 14px;
+         color: #4b5563;
+         margin: 16px 0 26px;
+      }
+
+      .btn-yellow {
+         width: auto;
+         background: #fcd34d;
+         color: #111827;
+         padding: 10px 14px;
+         border-radius: 3px;
+         font-size: 14.5px;
+      }
+   </style>
+</head>
+
+<body>
+   <div class="container">
+
+      <div class="row">
+
+         <!-- Profile card -->
+         <div class="card profile">
+            <div class="profile-cover"></div>
+
+            <div class="profile-avatar">
+               <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Ali&backgroundColor=eef0fe&top=shortFlat&hairColor=2c1b18&eyes=happy&eyebrows=defaultNatural&mouth=smile&skinColor=edb98a&clothing=hoodie&clothesColor=5b50d6&facialHairProbability=0&accessoriesProbability=0" alt="Ali Valiyev">
+            </div>
+
+            <div class="profile-body">
+               <h2 class="profile-name">Ali Valiyev</h2>
+               <p class="profile-role">Frontend Developer</p>
+               <p class="profile-desc">
+                  HTML, CSS va JavaScript bilan<br>
+                  veb saytlar yarataman.
+               </p>
+
+               <div class="profile-stats">
+                  <div><b>24</b><span>Loyihalar</span></div>
+                  <div><b>1.2K</b><span>Followers</span></div>
+                  <div><b>320</b><span>Following</span></div>
+               </div>
+
+               <button class="btn btn-purple">Profilni ko‘rish</button>
+            </div>
+         </div>
+
+         <!-- Product card -->
+         <div class="card product">
+            <div class="product-image">
+               <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600" alt="Minimal Backpack">
+               <span class="badge-sale">-15%</span>
+            </div>
+
+            <h2 class="product-title">Minimal Backpack</h2>
+            <p class="product-desc">
+               Kundalik foydalanish uchun sifatli va qulay ryukzak.
+            </p>
+
+            <div class="product-price">
+               <b>$29.99</b>
+               <s>$35.00</s>
+            </div>
+
+            <button class="btn btn-green">
+               <i class="fa-solid fa-cart-shopping"></i>
+               Savatchaga qo‘shish
+            </button>
+         </div>
+
+         <!-- Course card -->
+         <div class="card course">
+            <div class="course-image">
+               <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700" alt="HTML & CSS asoslari">
+            </div>
+
+            <div class="course-body">
+               <span class="course-tag">Web Development</span>
+               <h2 class="course-title">HTML &amp; CSS asoslari</h2>
+               <p class="course-desc">
+                  Veb sahifalar yaratish uchun HTML va CSS ni o‘rganing.
+               </p>
+
+               <div class="course-footer">
+                  <span class="course-time">
+                     <i class="fa-regular fa-clock"></i>
+                     6 soat
+                  </span>
+
+                  <a href="#" class="course-link">
+                     Batafsil
+                     <i class="fa-solid fa-arrow-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+
+      </div>
+
+      <div class="row">
+
+         <!-- Statistics card -->
+         <div class="card stats">
+            <div class="icon-box stats-icon">
+               <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+               <h3 class="stats-title">Jami talabalar</h3>
+               <h2 class="stats-number">1,250</h2>
+               <p class="stats-text">
+                  O‘tgan oyga nisbatan<br>
+                  <span class="up"><i class="fa-solid fa-arrow-up"></i> 12.5%</span> ko‘proq
+               </p>
+            </div>
+
+            <div class="icon-box stats-chart">
+               <i class="fa-solid fa-chart-line"></i>
+            </div>
+         </div>
+
+         <!-- Notification card -->
+         <div class="card notify">
+            <div class="icon-box notify-icon">
+               <i class="fa-solid fa-bell"></i>
+            </div>
+
+            <div>
+               <h3 class="notify-title">Eslatma</h3>
+               <p class="notify-text">Sizda 3 ta yangi xabar bor.</p>
+               <button class="btn btn-yellow">Xabarlarni ko‘rish</button>
+            </div>
+         </div>
+
+      </div>
+
+   </div>
+</body>
+
+</html>
