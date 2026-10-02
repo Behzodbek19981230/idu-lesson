@@ -74,80 +74,7 @@
          opacity: 0.9;
       }
 
-      /* ===== Profile card ===== */
-      .profile {
-         width: 290px;
-         text-align: center;
-      }
 
-      .profile-cover {
-         height: 95px;
-         background: #eef0fe;
-      }
-
-      .profile-avatar {
-         width: 110px;
-         height: 110px;
-         margin: -75px auto 0;
-         border-radius: 50%;
-         border: 3px solid #fff;
-         background: #eef0fe;
-         overflow: hidden;
-         position: relative;
-      }
-
-      .profile-avatar img {
-         width: 100%;
-         height: 100%;
-         object-fit: cover;
-      }
-
-      .profile-body {
-         padding: 12px 20px 20px;
-      }
-
-      .profile-name {
-         font-size: 21px;
-         font-weight: 600;
-         margin-bottom: 6px;
-      }
-
-      .profile-role {
-         font-size: 15px;
-         color: #4b5563;
-         margin-bottom: 14px;
-      }
-
-      .profile-desc {
-         font-size: 13.5px;
-         color: #4b5563;
-         line-height: 1.5;
-         padding-bottom: 14px;
-         border-bottom: 1px solid #e5e7eb;
-      }
-
-      .profile-stats {
-         display: flex;
-         justify-content: space-around;
-         margin: 14px 0 22px;
-      }
-
-      .profile-stats b {
-         display: block;
-         font-size: 17px;
-         font-weight: 600;
-         color: #5b50d6;
-         margin-bottom: 4px;
-      }
-
-      .profile-stats span {
-         font-size: 13px;
-         color: #4b5563;
-      }
-
-      .btn-purple {
-         background: #6763e6;
-      }
 
       /* ===== Product card ===== */
       .product {
@@ -394,31 +321,7 @@
 
       <div class="row">
 
-         <!-- Profile card -->
-         <div class="card profile">
-            <div class="profile-cover"></div>
 
-            <div class="profile-avatar">
-               <img src="https://api.dicebear.com/9.x/avataaars/svg?seed=Ali&backgroundColor=eef0fe&top=shortFlat&hairColor=2c1b18&eyes=happy&eyebrows=defaultNatural&mouth=smile&skinColor=edb98a&clothing=hoodie&clothesColor=5b50d6&facialHairProbability=0&accessoriesProbability=0" alt="Ali Valiyev">
-            </div>
-
-            <div class="profile-body">
-               <h2 class="profile-name">Ali Valiyev</h2>
-               <p class="profile-role">Frontend Developer</p>
-               <p class="profile-desc">
-                  HTML, CSS va JavaScript bilan<br>
-                  veb saytlar yarataman.
-               </p>
-
-               <div class="profile-stats">
-                  <div><b>24</b><span>Loyihalar</span></div>
-                  <div><b>1.2K</b><span>Followers</span></div>
-                  <div><b>320</b><span>Following</span></div>
-               </div>
-
-               <button class="btn btn-purple">Profilni ko‘rish</button>
-            </div>
-         </div>
 
          <!-- Product card -->
          <div class="card product">
@@ -435,11 +338,11 @@
             <div class="product-price">
                <b>$29.99</b>
                <s>$35.00</s>
+               <div style="width: 1px; border: 1px solid #1f9d55;"></div>
             </div>
 
             <button class="btn btn-green">
-               <i class="fa-solid fa-cart-shopping"></i>
-               Savatchaga qo‘shish
+               <i class="fa-solid fa-cart-shopping"></i> Savatchaga qo‘shish
             </button>
          </div>
 

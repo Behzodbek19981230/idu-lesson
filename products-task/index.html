@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+   <meta charset="UTF-8">
+   <title>Online do'kon</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: 'Segoe UI', Arial, sans-serif; background: #f3f4f6; color: #111827; padding: 28px; width: 860px; }
+      header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+      h1 { font-size: 24px; }
+      .count { font-size: 15px; color: #4b5563; margin-top: 4px; }
+      .count b { color: #6763e6; }
+      .cart { background: #fff; padding: 10px 16px; border-radius: 8px; font-weight: 600; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+      .cart i { color: #6763e6; margin-right: 6px; }
+      .tools { display: flex; gap: 10px; margin-bottom: 20px; }
+      .tools button { border: none; padding: 10px 16px; border-radius: 8px; font-size: 14px; font-weight: 500; background: #6763e6; color: #fff; }
+      .tools .light { background: #fff; color: #111827; box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+      .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+      .card { background: #fff; border-radius: 12px; padding: 18px; box-shadow: 0 4px 14px rgba(0,0,0,.07); }
+      .card .icon { height: 90px; border-radius: 8px; background: #eef0fe; color: #6763e6; font-size: 40px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+      .card h3 { font-size: 17px; margin-bottom: 6px; }
+      .tag { display: inline-block; background: #e3eefd; color: #2563eb; font-size: 12px; padding: 3px 8px; border-radius: 5px; }
+      .price { font-size: 20px; font-weight: 700; color: #e0364a; margin: 12px 0; }
+      .add { width: 100%; border: none; padding: 9px; border-radius: 6px; background: #1f9d55; color: #fff; font-size: 14px; font-weight: 500; }
+      .opt { font-size: 11px; background: #fef3cd; color: #92400e; padding: 3px 8px; border-radius: 5px; font-weight: 600; margin-left: 8px; vertical-align: middle; }
+   </style>
+</head>
+<body>
+   <header>
+      <div>
+         <h1>Online do'kon</h1>
+         <p class="count">Jami mahsulotlar: <b>5</b></p>
+      </div>
+      <div class="cart"><i class="fa-solid fa-cart-shopping"></i>Savat: 0 <span class="opt">ixtiyoriy</span></div>
+   </header>
+
+   <div class="tools">
+      <button>Faqat arzonlari (&lt; $400)</button>
+      <button>Arzonidan qimmatiga</button>
+      <button class="light">Barchasi</button>
+   </div>
+
+   <div class="grid">
+      <div class="card"><div class="icon"><i class="fa-solid fa-laptop"></i></div><h3>Noutbuk</h3><span class="tag">laptop</span><p class="price">$800</p><button class="add">Savatchaga qo'shish</button></div>
+      <div class="card"><div class="icon"><i class="fa-solid fa-mobile-screen"></i></div><h3>Telefon</h3><span class="tag">phone</span><p class="price">$500</p><button class="add">Savatchaga qo'shish</button></div>
+      <div class="card"><div class="icon"><i class="fa-solid fa-headphones"></i></div><h3>Quloqchin</h3><span class="tag">audio</span><p class="price">$50</p><button class="add">Savatchaga qo'shish</button></div>
+      <div class="card"><div class="icon"><i class="fa-regular fa-clock"></i></div><h3>Soat</h3><span class="tag">accessory</span><p class="price">$120</p><button class="add">Savatchaga qo'shish</button></div>
+      <div class="card"><div class="icon"><i class="fa-solid fa-tablet-screen-button"></i></div><h3>Planshet</h3><span class="tag">phone</span><p class="price">$350</p><button class="add">Savatchaga qo'shish</button></div>
+   </div>
+</body>
+</html>

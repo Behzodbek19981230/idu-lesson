@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+   <meta charset="UTF-8">
+   <title>colspan va rowspan misollari</title>
+   <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: 'Segoe UI', Arial, sans-serif; background: #f3f4f6; color: #111827; padding: 28px; width: 1124px; }
+      h1 { font-size: 24px; margin-bottom: 20px; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .example { background: #fff; border-radius: 14px; padding: 20px 24px; box-shadow: 0 4px 14px rgba(0,0,0,.07); }
+      .example.wide { grid-column: span 2; }
+      .example h2 { font-size: 17px; margin-bottom: 4px; }
+      .note { font-size: 13px; color: #6b7280; margin-bottom: 14px; }
+      pre { background: #111827; color: #e5e7eb; font-size: 12.5px; line-height: 1.55; padding: 12px 14px; border-radius: 8px; margin-top: 14px; font-family: Consolas, 'DejaVu Sans Mono', monospace; }
+      pre b { color: #fcd34d; }
+      table { border-collapse: collapse; font-size: 14px; }
+      th, td { border: 1px solid #cbd5e1; padding: 9px 18px; text-align: center; }
+      th { background: #6763e6; color: #fff; border-color: #6763e6; }
+      td.span { background: #fef3cd; font-weight: 600; }
+      td.name { background: #eef0fe; font-weight: 600; }
+      td.total { background: #dcfce7; font-weight: 700; }
+   </style>
+</head>
+<body>
+   <h1>colspan va rowspan misollari</h1>
+
+   <div class="grid">
+
+      <div class="example">
+         <h2>1. colspan — ustunlarni birlashtirish</h2>
+         <p class="note">Bitta katak yonma-yon 3 ta ustunni egallaydi</p>
+         <table>
+            <tr><th colspan="3">Haftalik dars jadvali</th></tr>
+            <tr><td>Dushanba</td><td>Seshanba</td><td>Chorshanba</td></tr>
+            <tr><td>HTML</td><td>CSS</td><td>JS</td></tr>
+         </table>
+<pre>&lt;tr&gt;
+  &lt;th <b>colspan="3"</b>&gt;Haftalik dars jadvali&lt;/th&gt;
+&lt;/tr&gt;</pre>
+      </div>
+
+      <div class="example">
+         <h2>2. rowspan — qatorlarni birlashtirish</h2>
+         <p class="note">Bitta katak tepadan pastga 3 ta qatorni egallaydi</p>
+         <table>
+            <tr><th>Guruh</th><th>Talaba</th><th>Baho</th></tr>
+            <tr><td class="span" rowspan="3">A guruh</td><td>Ali</td><td>90</td></tr>
+            <tr><td>Vali</td><td>75</td></tr>
+            <tr><td>Sara</td><td>100</td></tr>
+         </table>
+<pre>&lt;td <b>rowspan="3"</b>&gt;A guruh&lt;/td&gt;
+&lt;td&gt;Ali&lt;/td&gt;&lt;td&gt;90&lt;/td&gt;</pre>
+      </div>
+
+      <div class="example">
+         <h2>3. colspan + rowspan birga</h2>
+         <p class="note">Sarlavhada ikkala xususiyat ham ishlatilgan</p>
+         <table>
+            <tr><th rowspan="2">Talaba</th><th colspan="2">Baholar</th></tr>
+            <tr><th>HTML</th><th>CSS</th></tr>
+            <tr><td class="name">Ali</td><td>90</td><td>85</td></tr>
+            <tr><td class="name">Vali</td><td>70</td><td>80</td></tr>
+         </table>
+<pre>&lt;th <b>rowspan="2"</b>&gt;Talaba&lt;/th&gt;
+&lt;th <b>colspan="2"</b>&gt;Baholar&lt;/th&gt;</pre>
+      </div>
+
+      <div class="example">
+         <h2>4. Jami qator (colspan)</h2>
+         <p class="note">"Jami" yozuvi 2 ta ustun ustida turadi</p>
+         <table>
+            <tr><th>Mahsulot</th><th>Soni</th><th>Narxi</th></tr>
+            <tr><td>Telefon</td><td>2</td><td>$600</td></tr>
+            <tr><td>Quloqchin</td><td>1</td><td>$50</td></tr>
+            <tr><td class="total" colspan="2">Jami</td><td class="total">$650</td></tr>
+         </table>
+<pre>&lt;td <b>colspan="2"</b>&gt;Jami&lt;/td&gt;
+&lt;td&gt;$650&lt;/td&gt;</pre>
+      </div>
+
+      <div class="example wide">
+         <h2>5. Dars jadvali — murakkab misol</h2>
+         <p class="note">Ikki soatlik dars rowspan="2", sarlavha colspan="2"</p>
+         <table>
+            <tr><th rowspan="2">Vaqt</th><th colspan="2">Dushanba</th><th colspan="2">Seshanba</th></tr>
+            <tr><th>Fan</th><th>Xona</th><th>Fan</th><th>Xona</th></tr>
+            <tr><td class="name">9:00</td><td class="span" rowspan="2">Matematika</td><td rowspan="2">101</td><td>Ingliz tili</td><td>203</td></tr>
+            <tr><td class="name">10:00</td><td>Fizika</td><td>105</td></tr>
+            <tr><td class="name">11:00</td><td class="span" colspan="4">Tushlik tanaffusi</td></tr>
+         </table>
+      </div>
+
+   </div>
+</body>
+</html>

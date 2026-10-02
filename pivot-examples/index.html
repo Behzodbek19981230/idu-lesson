@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+   <meta charset="UTF-8">
+   <title>Pivot table misollari</title>
+   <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: 'Segoe UI', Arial, sans-serif; background: #f3f4f6; color: #111827; padding: 28px; width: 1124px; }
+      h1 { font-size: 24px; margin-bottom: 20px; }
+      .example { background: #fff; border-radius: 14px; padding: 20px 24px; margin-bottom: 20px; box-shadow: 0 4px 14px rgba(0,0,0,.07); }
+      .example h2 { font-size: 17px; margin-bottom: 4px; }
+      .example .note { font-size: 13px; color: #6b7280; margin-bottom: 14px; }
+      .flow { display: flex; align-items: center; gap: 22px; }
+      .arrow { font-size: 30px; color: #6763e6; }
+      .block span { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; color: #6b7280; margin-bottom: 6px; }
+      table { border-collapse: collapse; font-size: 13.5px; }
+      th, td { border: 1px solid #e5e7eb; padding: 7px 14px; text-align: center; }
+      th { background: #f9fafb; font-weight: 600; }
+      .src th { background: #eef0fe; }
+      .pv th { background: #6763e6; color: #fff; border-color: #6763e6; }
+      .pv td:first-child { background: #eef0fe; font-weight: 600; }
+      .pv .total, .pv .sum td { background: #dcfce7; font-weight: 700; }
+   </style>
+</head>
+<body>
+   <h1>Pivot table misollari</h1>
+
+   <div class="example">
+      <h2>1-misol: Hudud va mahsulot bo'yicha sotuv (Sum)</h2>
+      <p class="note">Qatorlar: Hudud · Ustunlar: Mahsulot · Qiymat: Sotuv summasi</p>
+      <div class="flow">
+         <div class="block src"><span>Asl jadval</span>
+            <table>
+               <tr><th>Hudud</th><th>Mahsulot</th><th>Sotuv</th></tr>
+               <tr><td>Toshkent</td><td>Telefon</td><td>500</td></tr>
+               <tr><td>Toshkent</td><td>Noutbuk</td><td>800</td></tr>
+               <tr><td>Samarqand</td><td>Telefon</td><td>300</td></tr>
+               <tr><td>Samarqand</td><td>Noutbuk</td><td>400</td></tr>
+               <tr><td>Toshkent</td><td>Telefon</td><td>200</td></tr>
+               <tr><td>Buxoro</td><td>Telefon</td><td>250</td></tr>
+            </table>
+         </div>
+         <div class="arrow">➜</div>
+         <div class="block pv"><span>Pivot table</span>
+            <table>
+               <tr><th>Hudud \ Mahsulot</th><th>Telefon</th><th>Noutbuk</th><th>Jami</th></tr>
+               <tr><td>Toshkent</td><td>700</td><td>800</td><td class="total">1500</td></tr>
+               <tr><td>Samarqand</td><td>300</td><td>400</td><td class="total">700</td></tr>
+               <tr><td>Buxoro</td><td>250</td><td>0</td><td class="total">250</td></tr>
+               <tr class="sum"><td>Jami</td><td>1250</td><td>1200</td><td>2450</td></tr>
+            </table>
+         </div>
+      </div>
+   </div>
+
+   <div class="example">
+      <h2>2-misol: Guruh va fan bo'yicha o'rtacha baho (Average)</h2>
+      <p class="note">Qatorlar: Guruh · Ustunlar: Fan · Qiymat: Bahoning o'rtachasi</p>
+      <div class="flow">
+         <div class="block src"><span>Asl jadval</span>
+            <table>
+               <tr><th>Talaba</th><th>Guruh</th><th>Fan</th><th>Baho</th></tr>
+               <tr><td>Ali</td><td>A</td><td>HTML</td><td>90</td></tr>
+               <tr><td>Vali</td><td>A</td><td>HTML</td><td>70</td></tr>
+               <tr><td>Ali</td><td>A</td><td>JS</td><td>80</td></tr>
+               <tr><td>Sara</td><td>B</td><td>HTML</td><td>100</td></tr>
+               <tr><td>Sara</td><td>B</td><td>JS</td><td>60</td></tr>
+               <tr><td>Nodir</td><td>B</td><td>JS</td><td>80</td></tr>
+            </table>
+         </div>
+         <div class="arrow">➜</div>
+         <div class="block pv"><span>Pivot table</span>
+            <table>
+               <tr><th>Guruh \ Fan</th><th>HTML</th><th>JS</th></tr>
+               <tr><td>A</td><td>80</td><td>80</td></tr>
+               <tr><td>B</td><td>100</td><td>70</td></tr>
+            </table>
+         </div>
+      </div>
+   </div>
+
+   <div class="example">
+      <h2>3-misol: Oy va kategoriya bo'yicha buyurtmalar soni (Count)</h2>
+      <p class="note">Qatorlar: Oy · Ustunlar: Kategoriya · Qiymat: Buyurtmalar soni</p>
+      <div class="flow">
+         <div class="block src"><span>Asl jadval</span>
+            <table>
+               <tr><th>Buyurtma</th><th>Oy</th><th>Kategoriya</th></tr>
+               <tr><td>#1</td><td>Yanvar</td><td>Kiyim</td></tr>
+               <tr><td>#2</td><td>Yanvar</td><td>Oziq-ovqat</td></tr>
+               <tr><td>#3</td><td>Yanvar</td><td>Kiyim</td></tr>
+               <tr><td>#4</td><td>Fevral</td><td>Kiyim</td></tr>
+               <tr><td>#5</td><td>Fevral</td><td>Oziq-ovqat</td></tr>
+               <tr><td>#6</td><td>Fevral</td><td>Oziq-ovqat</td></tr>
+            </table>
+         </div>
+         <div class="arrow">➜</div>
+         <div class="block pv"><span>Pivot table</span>
+            <table>
+               <tr><th>Oy \ Kategoriya</th><th>Kiyim</th><th>Oziq-ovqat</th><th>Jami</th></tr>
+               <tr><td>Yanvar</td><td>2</td><td>1</td><td class="total">3</td></tr>
+               <tr><td>Fevral</td><td>1</td><td>2</td><td class="total">3</td></tr>
+               <tr class="sum"><td>Jami</td><td>3</td><td>3</td><td>6</td></tr>
+            </table>
+         </div>
+      </div>
+   </div>
+</body>
+</html>
